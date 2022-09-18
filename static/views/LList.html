@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <link rel="stylesheet" type="text/css" href="Common-CSS.css">
+        <script src="Common-JS.js"></script>
+        <meta charset="utf-8">
+        <meta content="vision Alpha">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <title>CIPS LList</title>
+	</head>
+	<body>
+    <!--Header-->
+    <div class="panel" id="header">
+        <!--LOGO-->
+        <div class="title" id="logo">CIPS</div>
+        <!--Name-->
+        <div class="title" id="name">LList</div>
+        <!--操作面板-->
+        <div class="controlpanel">
+            <div class="controlblock" id="newmission">New</div>
+            <div class="controlblock" id="editmission">Edit</div>
+        </div>
+    </div>
+
+    <!--用户信息浮窗-->
+    <div class="floatwindow" id="floatwindow0">
+        <tr>
+          <td>用户ID<p id="showid"></p></td>
+          <td>用户名<p id="showusername"></p></td>
+        </tr>
+        <input id="Logout" type="button" value="登出">
+        <input type="button" value="关闭" onclick="hidewindow(0,1)">
+      </div>
+
+    <!--新建任务浮窗-->
+    <div class="floatwindow" id="floatwindow1">
+            <tr>
+            <td>任务名称<input type="text" id="title" class="inputarea"></td>
+            <td>任务描述<textarea id="describe" class="inputarea"></textarea></td>
+            <td>任务持续天数<input type="number" id="lasttime" class="inputarea"></td>
+            <td>任务模式
+                <select id="mode">
+                <option value ="1">串行</option>
+                <option value ="0">并行</option>
+                </select>
+            </td>
+            <td id="detailedsetting">详细时间设置
+            <div id="parablockouter">并行任务块<input type="number" id="parablock"></div>
+            <div>开始时间<input type="date" id="starttime" class="inputarea"></div>
+            <div>预计于<p id="endtime"></p>结束</div>
+            </td>
+            </tr>
+        <input id="submit" type="button" value="确定">
+        <input type="button" value="取消" onclick="hidewindow(1)">
+        <p id="addnewmissionstatus"></p>
+    </div>
+
+    <!--任务详情浮窗-->
+    <div class="floatwindow" id="floatwindow3">
+        <tr>
+            <td id="outershowtitle">任务名称<p id="showtitle" class="missioninfo"></p></td>
+            <td id="outershowdescribe">任务描述<p id="showdescribe" class="missioninfo"></p></td>
+            <td id="outershowlasttime">任务持续天数<p id="showlasttime" class="missioninfo"></p></td>
+            <td id="outershowmode">任务模式<p id="showmode" class="missioninfo"></p></td>
+            <td id="outershowstart">开始时间<p id="showstart" class="missioninfo"></p></td>
+            <td id="outershowend">结束时间<p id="showend" class="missioninfo"></p></td>
+        </tr>
+        <input id="editbutton" type="button" value="编辑">
+        <input id="deletebutton" type="button" value="删除">
+        <input type="button" value="关闭" onclick="hidewindow(3)">
+        <p id="missionstatus"></p>
+    </div>
+
+    <!--编辑任务浮窗-->
+    <div class="floatwindow" id="floatwindow5">
+        <tr>
+            <td id="outeredittitle">任务名称<input id="edittitle" class="inputarea"></td>
+            <td id="outereditdescribe">任务描述<input id="editdescribe" class="inputarea"></td>
+            <td id="outereditlasttime">任务持续天数<input id="editlasttime" class="inputarea"></td>
+            <td id="outereditmode">任务模式<p id="editmode" class="missioninfo"></p></td>
+            <td id="outereditstart">开始时间<p id="editstart" class="missioninfo"></p></td>
+            <td id="outereditend">结束时间<p id="editend" class="missioninfo"></p></td>
+        </tr>
+        <input id="savebutton" type="button" value="保存">
+        <input id="backbutton" type="button" value="返回">
+        <input type="button" value="关闭" onclick="hidewindow(5)">
+        <p id="editstatus"></p>
+    </div>
+    
+    <!--显示面板-->
+    <div id="showpanel" class="outer-container">
+        <div id="innershowpanel" class="inner-container">
+            <canvas id="timeline" width="8000" height="70"></canvas>
+        </div>
+    </div>
+
+    <!--附加信息-->
+    <div id="bottom" class="panel">
+        <div class="controlblock" id="sign"><p>EICG</p></div>
+        <div class="controlblock" id="log"><p>更新日志</p></div>
+        <!--用户状态-->
+        <div id="user" class="controlblock"><p id="userstate">用户状态</p></div>
+    </div>
+
+    <!--通用信息浮窗-->
+    <div class="floatwindow" id="floatwindow4">
+        <div id="message">For the Future</div>
+        <input id="cancelbutton" type="button" value="关闭" onclick="hidewindow(4)">
+    </div>
+    <script>
+        document.getElementById('logo').onclick=function(){jump(0)};
+        document.getElementById('Logout').onclick=function(){logout()};
+        window.onload=getUserState("?back=LList.html");
+      </script
+	</body>
+</html>

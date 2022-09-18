@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/Common-CSS.css">
+    <script src="../js/Common-JS.js"></script>
+    <meta charset="utf-8">
+    <meta content="vision Alpha">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>CIPS Main</title>
+  </head>
+  <body>
+
+<!--Header-->
+<div class="panel" id="header">
+  <!--LOGO-->
+  <div class="title" id="logo">CIPS</div>
+  <!--Name-->
+  <div class="title" id="name">Main</div>
+  <!--操作面板-->
+  <div class="controlpanel">
+  </div>
+  <!--用户状态-->
+  <div id="user" class="controlblock"><p id="userstate">用户状态</p></div>
+</div>
+
+<!--用户信息浮窗-->
+    <div class="floatwindow" id="floatwindow0">
+      <tr>
+        <td>用户ID<p id="showid"></p></td>
+        <td>用户名<p id="showusername"></p></td>
+      </tr>
+      <input id="Logout" type="button" value="登出">
+      <input type="button" value="关闭" onclick="hidewindow(0,1)">
+    </div>
+
+<!--显示面板-->
+    <div id="display">
+      <div id="linkToLList" class="choiceBlock">LList</div>
+      <div id="linkToMControl" class="choiceBlock">MControl</div>
+    </div>
+
+    <script>
+      document.getElementById('logo').onclick=function(){jump(0)};
+      document.getElementById('Logout').onclick=function(){logout()};
+      document.getElementById('linkToLList').onclick=function(){jump(4)};
+      document.getElementById('linkToMControl').onclick=function(){jump(5)};
+
+      window.onload=getUserState("?back=index.html");
+    </script>
+  </body>
+</html>

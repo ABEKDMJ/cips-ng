@@ -1,0 +1,75 @@
+body
+{
+    margin: 0;
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#step2{
+    display: none;
+}
+
+.userPanel{
+    width: 43vmin;
+    height: 60vmin;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 4vmin;
+    padding-bottom: 4vmin;
+    text-align: center;
+    box-sizing: border-box;
+    background-position: center top;
+    background-size: cover;
+    z-index: 1;
+}
+
+.userPanel::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0.5;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(6px);
+    z-index: -1;
+}
+
+.userPanel input{
+    margin: 1vmin 0 1vmin 0;
+}
+
+.userPanel input[type=text]{
+    width: 24vmin;
+    height: 2.5vmin;
+}
+
+.userPanel input[type=password]{
+    width: 24vmin;
+    height: 2.5vmin;
+}
+
+.userPanel input[type=button]{
+    width: 9vmin;
+    height: 5vmin;
+}
+
+.userTextInfo{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.userInputBlock{
+    margin: 2vmin 0 2vmin 0;
+}
+
+.fwbuttonblock{
+    margin-bottom: 5vmin;
+}

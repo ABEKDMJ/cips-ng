@@ -1,0 +1,175 @@
+body
+{
+    overflow-x: hidden;
+    margin: 0;
+    font-family: "Microsoft YaHei UI","Segoe UI",Arial,Verdana,sans-serif;
+}
+
+.missionblock{
+  height: 12vmax;
+  display: inline-block;
+  padding-top: 1.5vmax;
+  padding-bottom: 1.5vmax;
+  margin: 0px;
+  text-align: center;
+  font-size: 2vmax;
+  overflow: hidden;
+  white-space:pre-wrap;
+  word-wrap:break-word;
+}
+
+.missionblock:hover{
+  opacity: 0.8;
+}
+
+.outer-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.inner-container {
+  padding: 2vmax;
+  overflow-x:scroll;
+}
+
+#titleinput{
+  width: 700px;
+  font-size: 20px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+#textinput{
+  width: 700px;
+  height: 360px;
+  padding: 12px 16px;
+  font-size: 1.8em;
+  margin: 0;
+  vertical-align: top;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 15px 15px 15px 15px;
+  border: 2px solid #c4c7ce;
+  background: #fff;
+  color: #222;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+.listitem{
+  padding-left: 4vmax;
+  padding-right: 4vmax;
+  padding-top: 2vmax;
+  padding-bottom: 2vmax;
+  text-align:left;
+  font-size: 1.2em;
+}
+
+#detailedinfo{
+  margin-top: 5vmax;
+  margin-bottom: 5vmax;
+}
+
+.missionrel{
+  font-size: 1.2em;
+}
+
+.paramissionblock{
+  padding-top:1.8vmax;
+  padding-bottom:1.8vmax;
+  white-space:nowrap;
+}
+
+.parablockplaceholder{
+  height: 23vmax;
+  white-space:nowrap;
+}
+
+.inputblock{
+  padding-top: 0.75vmax;
+  padding-bottom: 0.75vmax;
+}
+
+.bigsettitle{
+  text-align: center;
+}
+
+#basicsetting{
+  padding-top: 4vmax;
+  padding-bottom: 2vmax;
+  padding-left: 2vmax;
+  padding-right: 2vmax;
+}
+
+.fwbuttonblock{
+  padding-bottom: 2vmax;
+  padding-top: 4vmax;
+  padding-left: 5vmax;
+  padding-right: 5vmax;
+  text-align: center;
+}
+
+#describesetting{
+  padding-bottom: 2vmax;
+  padding-top: 2vmax;
+  padding-left: 4.5vmax;
+  padding-right: 4.5vmax;
+}
+
+.fwtitle{
+  text-align: center;
+  font-size: 2.8vmax;
+  padding-top: 1vmax;
+  padding-bottom: 1vmax;
+}
+
+.sensearea{
+  position: absolute;
+  height: 100%;
+  width: 5vmax;
+  background-color: #222;
+  opacity: 0;
+  top: 0px;
+}
+
+.sensearea:hover{
+  opacity: 0.3;
+}
+
+#leftsensearea{
+  left: 0px;
+}
+
+#rightsensearea{
+  right: 0px;
+}
+
+#mcontrolpanel{
+  position: absolute;
+  right: 0px;
+}
+
+.remissionblock{
+  margin: 0px;
+  padding: 1vmax;
+  height: 1.5vmax;
+  width: 100%;
+}
+
+.inremissionblock{
+  width: 5vmax;
+  height: 3vmax;
+  font-size: 1vmax;
+  border-radius:0px;
+  border-width:0px;
+  text-align: center;
+}
+
+.inremissionblock:hover{
+  background-color: #DC143C;
+  color: white;
+}
+
+#mcontrolpanel{
+  height: 8vmax;
+}

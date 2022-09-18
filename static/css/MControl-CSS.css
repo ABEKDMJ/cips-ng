@@ -1,0 +1,180 @@
+body
+{
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.missionblock{
+  height: 12vmin;
+  display: inline-block;
+  padding-top: 1.5vmin;
+  padding-bottom: 1.5vmin;
+  margin: 0px;
+  text-align: center;
+  font-size: 2vmin;
+  overflow: hidden;
+  white-space:pre-wrap;
+  word-wrap:break-word;
+}
+
+.missionblock:hover{
+  opacity: 0.8;
+}
+
+.outer-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.inner-container {
+  padding: 2vmin;
+  overflow-x:auto;
+}
+
+#titleinput{
+  width: 700px;
+  font-size: 20px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+#textinput{
+  width: 700px;
+  height: 360px;
+  padding: 12px 16px;
+  font-size: 1.8em;
+  margin: 0;
+  vertical-align: top;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 15px 15px 15px 15px;
+  border: 2px solid #c4c7ce;
+  background: #fff;
+  color: #222;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+.listitem{
+  padding-left: 4vmin;
+  padding-right: 4vmin;
+  padding-top: 2vmin;
+  padding-bottom: 2vmin;
+  text-align:left;
+  font-size: 1.2em;
+}
+
+#detailedinfo{
+  margin-top: 5vmin;
+  margin-bottom: 5vmin;
+}
+
+.missionrel{
+  font-size: 1.2em;
+  padding: 2vmin 3vmin 2vmin 3vmin;
+}
+
+.paramissionblock{
+  padding-top:1.8vmin;
+  padding-bottom:1.8vmin;
+  white-space:nowrap;
+}
+
+.parablockplaceholder{
+  height: 23vmin;
+  white-space:nowrap;
+}
+
+.inputblock{
+  padding-top: 0.75vmin;
+  padding-bottom: 0.75vmin;
+}
+
+.bigsettitle{
+  text-align: center;
+}
+
+#basicsetting{
+  padding-top: 4vmin;
+  padding-bottom: 2vmin;
+  padding-left: 2vmin;
+  padding-right: 2vmin;
+}
+
+#describesetting{
+  padding-bottom: 2vmin;
+  padding-top: 2vmin;
+  padding-left: 4.5vmin;
+  padding-right: 4.5vmin;
+}
+
+.fwtitle{
+  text-align: center;
+  font-size: 2.8vmin;
+  padding-top: 1vmin;
+  padding-bottom: 1vmin;
+}
+
+.sensearea{
+  position: absolute;
+  height: 100%;
+  width: 2vmin;
+  background-color: #222;
+  opacity: 0;
+  top: 0px;
+}
+
+.sensearea:hover{
+  opacity: 0.3;
+}
+
+#leftsensearea{
+  left: 0px;
+}
+
+#rightsensearea{
+  right: 0px;
+}
+
+#mcontrolpanel{
+  position: absolute;
+  right: 0px;
+}
+
+.remissionblock{
+  margin: 0px;
+  padding: 1vmin;
+  height: 1.5vmin;
+  width: 100%;
+}
+
+.inremissionblock{
+  width: 5vmin;
+  height: 3vmin;
+  font-size: 1vmin;
+  border-radius:0px;
+  border-width:0px;
+  text-align: center;
+}
+
+.inremissionblock:hover{
+  background-color: #DC143C;
+  color: white;
+}
+
+#outershowdescribe{
+  overflow-y: auto;
+}
+
+#bottom{
+  position: fixed;
+  bottom: 0;
+}
+
+.sidecontrolblock{
+  position: absolute;
+  top: 8vmin;
+  right: -16vmin;
+  width: 14vmin;
+  height: 6vmin;
+}

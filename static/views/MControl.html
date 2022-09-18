@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <link rel="stylesheet" type="text/css" media="screen and (orientation:portrait)" href="../css/MControl-CSS-mobile.css">
+        <link rel="stylesheet" type="text/css" media="screen and (orientation:portrait)" href="../css/Common-CSS-mobile.css">
+        <link rel="stylesheet" type="text/css" media="screen and (orientation:landscape)" href="../css/MControl-CSS.css">
+        <link rel="stylesheet" type="text/css" media="screen and (orientation:landscape)" href="../css/Common-CSS.css">
+        <script src="../js/Common-JS.js"></script>
+        <script src="../js/MControl.js"></script>
+        <meta charset="utf-8">
+        <meta content="vision Alpha">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <title>CIPS MControl</title>
+	</head>
+	<body>
+    <!--Header-->
+    <div class="panel" id="header">
+        <!--LOGO-->
+        <div class="title" id="logo"><a rel="index.html">CIPS</a></div>
+        <!--Name-->
+        <div class="title" id="name">MControl</div>
+        <!--操作面板-->
+        <div class="controlpanel" id="mcontrolpanel">
+            <input type="button" class="controlblock" id="newmission" value="新建任务">
+            <input type="button" class="controlblock" id="editmission" value="批量编辑">
+            <input type="button" class="controlblock" id="recyclebin" value="任务回收箱">
+        </div>
+    </div>
+
+    <!--用户信息浮窗-->
+    <div class="floatwindow" id="floatwindow0">
+        <span class="close-btn" onclick="hidewindow(0,1)"></span>
+        <tr>
+          <td>用户ID<p id="showid"></p></td>
+          <td>用户名<p id="showusername"></p></td>
+        </tr>
+        <input class="commonbutton" id="Logout" type="button" value="注销">
+        <input class="commonbutton" id="changePassword" type="button" value="更改密码">
+      </div>
+
+    <!--新建任务浮窗-->
+    <div class="floatwindow missionrel" id="floatwindow1">
+        <span class="close-btn" onclick="hidewindow(1)"></span>
+        <div>
+            <div class="fwtitle">新建任务</div>
+            <div id="basicsetting">
+                <div class="inputblock"><span>任务名称</span><input type="text" id="title" class="inputarea"></div>
+                <div class="inputblock"><span>任务持续天数</span>
+                    <input type="number" id="lasttime" class="inputarea" min="1" max="1000" value="1">
+                    lasting<input type="checkbox" id="lasttimecheck"></div>
+                <div class="inputblock">
+                <span>任务模式</span>
+                <select id="mode">
+                    <option value ="1">串行</option>
+                    <option value ="2">单独并行</option>
+                    <option value ="0">并行</option>
+                </select>
+                </div>
+            </div>
+        <div class="inputblock" id="describesetting">
+            <div class="bigsettitle">任务描述</div>
+            <textarea id="describe" class="inputarea"></textarea>
+        </div>
+        <div id="detailedsetting">
+            <div class="bigsettitle">详细时间设置</div>
+            <div id="parablockouter">并行任务块
+                <select id="parablock">
+                    <option value ="0">自动</option>
+                </select>
+            </div>
+            <div>开始时间<input type="date" id="starttime" class="inputarea"></div>
+        </div>
+        <div id="relatedInfo">
+            <div>于<span id="pdstarttime"></span>开始</div>
+            <div>预计于<span id="pdendtime"></span>结束</div>
+        </div>
+        </div>
+        <div class="fwbuttonblock">
+            <input class="commonbutton" id="submit" type="button" value="确定">
+        </div>
+        <p id="addnewmissionstatus"></p>
+    </div>
+
+    <!--批量编辑任务浮窗--> 
+    <!--待开发-->
+    <div class="floatwindow" id="floatwindow2">
+        <span class="close-btn" onclick="hidewindow(2)"></span>
+        <div class="fwtitle">批量编辑任务</div>
+        <div class="fwbuttonblock">
+            
+        </div>
+        <p id="addnewmissionstatus"></p>
+    </div>
+
+    <!--任务详情浮窗-->
+    <div class="floatwindow missionrel" id="floatwindow3">
+        <span class="close-btn" onclick="hidewindow(3)"></span>
+        <div class="fwtitle">任务详情</div>
+        <tr>
+            <td id="outershowtitle">任务名称<p id="showtitle" class="missioninfo"></p></td>
+            <td id="outershowdescribe">任务描述<p id="showdescribe" class="missioninfo"></p></td>
+            <td id="outershowlasttime">任务持续天数<p id="showlasttime" class="missioninfo"></p></td>
+            <td id="outershowmode">任务模式<p id="showmode" class="missioninfo"></p></td>
+            <td id="outershowstart">开始时间<p id="showstart" class="missioninfo"></p></td>
+            <td id="outershowend">结束时间<p id="showend" class="missioninfo"></p></td>
+        </tr>
+        <div class="fwbuttonblock">
+            <input class="commonbutton" id="editbutton" type="button" value="编辑">
+            <input class="commonbutton" id="deletebutton" type="button" value="回收">
+        </div>
+        <p id="missionstatus"></p>
+    </div>
+
+    <!--编辑任务浮窗-->
+    <div class="floatwindow missionrel" id="floatwindow5">
+        <span class="close-btn" onclick="hidewindow(5)"></span>
+        <div class="fwtitle">编辑任务</div>
+        <tr>
+            <td id="outeredittitle">任务名称<input id="edittitle" class="inputarea"></td>
+            <td id="outereditdescribe">任务描述<input id="editdescribe" class="inputarea"></td>
+            <td id="outereditlasttime">任务持续天数<input id="editlasttime" class="inputarea"></td>
+            <td id="outereditmode">任务模式<p id="editmode" class="missioninfo"></p></td>
+            <td id="outereditstart">开始时间<p id="editstart" class="missioninfo"></p></td>
+            <td id="outereditend">结束时间<p id="editend" class="missioninfo"></p></td>
+        </tr>
+        <div class="fwbuttonblock">
+            <input class="commonbutton" id="savebutton" type="button" value="保存">
+            <input class="commonbutton" id="backbutton" type="button" value="返回">
+        </div>
+        <p id="editstatus"></p>
+    </div>
+
+    <!--任务回收箱浮窗-->
+    <div class="floatwindow missionrel" id="floatwindow6">
+        <span class="close-btn" onclick="hidewindow(6)"></span>
+        <div class="fwtitle">任务回收箱</div>
+        <div id="recyclelist"></div>
+        <div class="fwbuttonblock">
+            <input class="commonbutton" id="clearallbutton" type="button" value="全部清空">
+        </div>
+    </div>
+    
+    <!--显示面板-->
+    <div id="showpanel" class="outer-container">
+        <div id="innershowpanel" class="inner-container">
+            <canvas id="timeline" height="80"></canvas>
+        </div>
+    </div>
+
+    <!--附加信息-->
+    <div id="bottom" class="panel">
+        <input type="button" class="controlblock" id="sign" value="EICG">
+        <!--用户状态-->
+        <div class="controlblock" id="user"><span id="userstate">未登录</span></div>
+    </div>
+
+    <!--通用信息浮窗-->
+    <div class="floatwindow" id="floatwindow4">
+        <span class="close-btn" onclick="hidewindow(4)"></span>
+        <div id="detailedinfo">
+            <div class="listitem">开发人员
+                <div class="member">ABEkdmj</div>
+            </div>
+            <div class="listitem">内部测试人员
+                <div class="member">ABEkdmj</div>
+            </div>
+            <div class="listitem"><a id="log" href="UpdateLog.html">更新日志</a></div>
+            <div class="listitem">Copyright 2021 ABEkdmj</div>
+        </div>
+    </div>
+
+    <input type="button" onclick="getobj()" value="getobj">
+
+    <script>
+        //绑定一系列事件
+        document.getElementById('lasttimecheck').onchange=function(){if(document.getElementById("lasttimecheck").checked==true){document.getElementById("endtime").innerHTML="永远不会"}};
+
+        document.getElementById('starttime').onchange=function(){predictEndTime()};
+        document.getElementById('lasttime').onchange=function(){predictEndTime()};
+        document.getElementById('parablock').onchange=function(){predictEndTime()};
+
+        document.getElementById('logo').onclick=function(){jump(0);};
+        document.getElementById('Logout').onclick=function(){logout();};
+        document.getElementById('changePassword').onclick=function(){jump(3);};
+
+        document.getElementById('submit').onclick=function(){addNewMission();};
+
+        document.getElementById('mode').onchange=function(){
+            if (document.getElementById('mode').value==0 || document.getElementById('mode').value==2){
+                document.getElementById('detailedsetting').style.visibility="hidden";}
+            else {
+                document.getElementById('detailedsetting').style.visibility="visible";}
+            };
+
+        document.getElementById('newmission').onclick=function(){floatwindow(0,1);};
+        document.getElementById('editmission').onclick=function(){floatwindow(0,2);};
+        document.getElementById('recyclebin').onclick=function(){floatwindow(0,6);if (refreshToken1 != 1) {getRecycleList()};};
+        document.getElementById('sign').onclick=function(){floatwindow(1,1);};
+        document.getElementById('log').onclick=function(){window.location.href="更新日志.txt";};
+
+        document.getElementById('newmission').onclick=function(){floatwindow(0,1);};
+
+        /*
+        document.getElementById('newmission').onmouseenter=shadow("newmission");
+        document.getElementById('editmission').onmouseenter=shadow("editmission");
+        document.getElementById('recycle').onmouseenter=shadow("recycle");
+        document.getElementById('sign').onmouseenter=shadow("sign");
+        document.getElementById('log').onmouseenter=shadow("log");
+        document.getElementById('newmission').onmouseleave=clear("newmission");
+        document.getElementById('editmission').onmouseleave=clear("editmission");
+        document.getElementById('recycle').onmouseleave=clear("recycle");
+        document.getElementById('sign').onmouseleave=clear("sign");
+        document.getElementById('log').onmouseleave=clear("log");
+        */
+    </script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CIPS注册</title>
+        <link rel="stylesheet" type="text/css" href="Common-CSS.css">
+        <link rel="stylesheet" type="text/css" href="User-CSS.css">
+    </head>
+    <body>
+        <!--Header-->
+        <div class="panel" id="header">
+            <!--LOGO-->
+            <div class="title" id="logo"><a rel="index.html">CIPS</a></div>
+            <!--Name-->
+            <div class="title" id="name">注册</div>
+        </div>
+        <div class="userPanel">
+            <div class="userInputBlock">
+                <div class="userTextInfo">用户名</div>
+                <div><input type="text" class="inputarea" id="username"></div>
+            </div>
+            <div class="userInputBlock">
+                <div class="userTextInfo">密码</div>
+                <div><input type="password" class="inputarea" id="password"></div>
+            </div>
+            <div class="userInputBlock">
+                <div class="userTextInfo">确认密码</div>
+                <div><input type="password" class="inputarea" id="confirmpass"></div>
+            </div>
+            <div class="fwbuttonblock">
+                <div>
+                    <div><input type="button" class="commonbutton" id="submit" value="确定" onclick="sendRegister()"></div>
+                    <div><span id="registerstatus"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function timer(int) {
+                int--;
+                document.getElementById("resttime").innerHTML = int;
+                if (int==0) {
+                    window.clearInterval(mytimer);
+                    document.getElementById("mailcheck").style.visibility="visible";
+                } else {
+                    var mytimer=setTimeout(function(){timer(int)},1000);
+                }
+            }
+
+            function sendRegister() {
+                var username=document.getElementById("username").value;
+                var password=document.getElementById("password").value;
+                var confirmpass=document.getElementById("confirmpass").value;
+                if (username.length==0||password.length==0||confirmpass.length==0) {
+                    alert("您有注册信息未填");
+                } else {
+                    var request = {"username":username,"password":password,"confirmpass":confirmpass};
+                    var data=JSON.stringify(request);
+                    var feedback;
+                    var reg=new XMLHttpRequest();
+                    reg.open("POST","Register.php",true);
+                    reg.setRequestHeader("Content-type", "application/json");
+                    reg.send(data);
+                    reg.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        feedback=this.responseText;
+                        document.getElementById("registerstatus").innerHTML = feedback+"3秒后页面自动跳转";
+                        setInterval(function(){window.location.href = "http://localhost/EICG/CIPS/login.html";},3000);
+                    }
+                }
+            }
+            }
+        </script>
+    </body>
+</html>

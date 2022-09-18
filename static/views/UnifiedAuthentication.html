@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CIPS身份验证</title>
+        <link type="text/css" rel="stylesheet" href="#"/>
+    </head>
+    <body>
+        <div id="step1">
+            <tr>
+                <td>请选择您的认证方式</td>
+            </tr>
+            <tr>
+                <td><input type="button" id="emailauthen" value="邮箱认证" onclick="selectA()"></td>
+                <td><input type="button" id="otherauthen" value="其他认证"></td>
+            </tr>
+        </div>
+        <div id="step2A" style="display: none;">
+            <form>
+                <input type="button" id="backward" value="后退" onclick="moveback()">
+                <tr>
+                    <td><label for="username">用户名：</label></td>
+                    <td><input type="text" name="username" id="username"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">邮箱地址：</label></td>
+                    <td><input type="text" name="emailaddress" id="emailaddress"></td>
+                </tr>
+                <tr>
+                    <td><label for="vcode">邮箱验证码：</label></td>
+                    <td><input type="text" name="vcode" id="vcode"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" id="mailcheck" value="发送验证码" onclick="sendmail()"></td>
+                    <td>请稍等：<p id="resttime"></p>s后重新发送验证码</td>
+                    <td><p id="mailstatus"></p></td>
+                </tr>
+                <tr>
+                    <td><input type="button" id="submit" value="确认" onclick="checkvcode()"></td>
+                    <td><p id="registerstatus"></p></td>
+                </tr>
+            </form>
+        </div>
+        <div id="step3"></div>
+
+        <script>
+            
+            function selectA() {
+                document.getElementById("step1").style.display="none";
+                document.getElementById("step2A").style.display="block";
+            }
+
+            function moveback() {
+                document.getElementById("step2A").style.display="none";
+                document.getElementById("step1").style.display="block";
+            }
+
+            function timer(int) {
+                int--;
+                document.getElementById("resttime").innerHTML = int;
+                if (int==0) {
+                    window.clearInterval(mytimer);
+                    document.getElementById("mailcheck").style.visibility="visible";
+                } else {
+                    var mytimer=setTimeout(function(){timer(int)},1000);
+                }
+            }
+
+            function sendmail(){
+                var mailaddress=document.getElementById("emailaddress").value;
+                if (mailaddress.length==0) {
+                    alert("请输入邮箱地址");
+                } else {
+                    var feedback;
+                    var mail=new XMLHttpRequest();
+                    mail.open("POST","Mailsend.php",true);
+                    mail.setRequestHeader("Content-type", "application/plain");
+                    mail.send(mailaddress);
+                    mail.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        feedback=this.responseText;
+                        document.getElementById("mailstatus").innerHTML = feedback;
+                        if (feedback=="验证码已发送") {
+                            timer(60);
+                            document.getElementById("mailcheck").style.visibility="hidden";
+                            }
+                        }
+                    }
+                }
+            }
+
+            function checkvcode() {
+                var vcode=document.getElementById("vcode").value;
+                var username=document.getElementById("username").value;
+                if (vcode.length==0) {
+                    alert("请输入验证码");
+                } else {
+                    var reg=new XMLHttpRequest();
+                    var request1 = {"username":username,"vcode":vcode};
+                    var data1=JSON.stringify(request1);
+                    reg.open("POST","UnifiedAuthentication.php",true);
+                    reg.setRequestHeader("Content-type", "application/json");
+                    reg.send(data1);
+                    reg.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var feedback1;
+                        feedback1=this.responseText;
+                        if (feedback1=="验证码正确") {
+                            document.getElementById("registerstatus").innerHTML = feedback1+"3秒后跳转至新密码设定页面";
+                            setTimeout(function(){window.location.replace("UserControl.php?loc=ForgetPassword.html")},3000);
+                                /*var jump=new XMLHttpRequest();
+                                var request2 = {"loc":"ForgetPassword.html"};
+                                var data2=JSON.stringify(request2);
+                                var feedback2;
+                                jump.open("GET","UserControl.php?loc=ForgetPassword.html",false);
+                                jump.setRequestHeader("Content-type", "application/json");
+                                jump.send(data2);
+                                jump.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    feedback2=this.responseText;
+                                    document.getElementById("step3").innerHTML = feedback2;
+                                }
+                            }*/
+                        } else {
+                            document.getElementById("registerstatus").innerHTML = feedback;
+                        }
+                    }
+                }
+            }
+            }
+        </script>
+    </body>
+</html>

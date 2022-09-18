@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CIPS登录</title>
+        <link rel="stylesheet" type="text/css" href="../css/Common-CSS.css">
+        <link rel="stylesheet" type="text/css" href="../css/User-CSS.css">
+        <script src="../js/Common-JS.js"></script>
+    </head>
+    <body>
+        <!--Header-->
+        <div class="panel" id="header">
+            <!--LOGO-->
+            <div class="title" id="logo"><a rel="index.html">CIPS</a></div>
+            <!--Name-->
+            <div class="title" id="name">登录</div>
+        </div>
+        <div class="userPanel">
+            <div class="userInputBlock">
+                <div class="userTextInfo">用户名</div>
+                <input type="text" class="inputarea" id="username">
+            </div>
+            <div class="userInputBlock">
+                <div class="userTextInfo">密码</div>
+                <input type="password" class="inputarea" id="password">
+            </div>
+            <div class="fwbuttonblock">
+                <div>
+                    <input type="button" class="commonbutton" id="login" value="登录" onclick="login()">
+                    <p id="loginstatus"></p>
+                </div>
+                <div>
+                    <input type="button" class="commonbutton" id="register" value="注册" onclick="jump(2)">
+                    <input type="button" class="commonbutton" id="forgetpassword" value="忘记密码" onclick="jump(3)">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

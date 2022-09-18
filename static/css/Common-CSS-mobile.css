@@ -1,0 +1,128 @@
+body
+{
+    overflow-x: hidden;
+    font-family: "Microsoft YaHei UI","Segoe UI",Arial,Verdana,sans-serif;
+}
+
+a 
+{
+    text-decoration:none;
+}
+
+.title{
+    margin-left: 1vmax;
+    margin-right: 1vmax;
+    font-size: 7vmax;
+    text-align: center;
+    color:#DC143C;
+    display: inline-block;
+}
+
+.panel{
+    width: 100%;
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: relative;
+    padding-left: 1vmax;
+    padding-left: 2vmax;
+}
+
+.floatwindow{
+    display:none;
+    z-index: 10000;
+    width: 45vmax;
+    height: 63vmax;
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    background-color:#E5E5EA;
+}
+
+#header{
+    height: 16vmax;
+    vertical-align: top;
+}
+
+#bottom{
+    height: 8vmax;
+}
+
+#logo{
+    height: 50%;
+}
+
+#name{
+    font-size: 3vmax;
+}
+
+.bigVersion{
+    margin: 4vmax;
+}
+
+.versionTitle{
+    font-size: 20px;
+}
+
+.commonbutton:hover {
+    background-color: #DC143C;
+    color: white;
+}
+  
+.commonbutton{
+    width: 7.2vmax;
+    height: 4.2vmax;
+    font-size: 1.5vmax;
+    border-radius:0px;
+    border-width:0px;
+    text-align: center;
+}
+
+.choiceBlock{
+    display: inline-block;
+    margin: 4vmax;
+    width: 30vmax;
+    height: 30vmax;
+    background-color: #f64f59;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.controlblock{
+    margin: 0px;
+    padding: 0.5vmax;
+    text-align: center;
+    height: 100%;
+    font-size: 2.5vmax;
+    color: 	#B22222;
+    display: inline-block;
+    box-sizing:border-box;
+    vertical-align: top;
+    width: 14vmax;
+    background-color: transparent;
+    border-width:0px;
+}
+
+.controlblock:hover{
+    background-color: #DC143C;
+    color: white;
+}
+
+.controlpanel{
+    margin: 0px;
+    height: 50%;
+    text-align: center;
+}
+
+.inputarea{
+    border-radius: 0px;
+    border-width: 2.5px;
+    border-color: #AEAEB2;
+    border-style: solid;
+}
+
+.inputarea:hover{
+    border-radius: 0px;
+    border-width: 2.5px;
+    border-color: #DC143C;
+    border-style: solid;
+}

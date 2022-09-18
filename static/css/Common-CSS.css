@@ -1,0 +1,162 @@
+body
+{
+    font-family: "Microsoft YaHei UI","Segoe UI",Arial,Verdana,sans-serif;
+}
+
+a 
+{
+    text-decoration:none;
+}
+
+.title{
+    margin-left: 1vmin;
+    margin-right: 1vmin;
+    font-size: 7vmin;
+    text-align: center;
+    color:#DC143C;
+    display: inline-block;
+    user-select: none;
+}
+
+.panel{
+    width: 100%;
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: relative;
+    padding: 0 3vmin 0 3vmin;
+    box-sizing: border-box;
+}
+
+.floatwindow{
+    display:none;
+    z-index: 9999;
+    width: 81vmin;
+    height: 63vmin;
+    position: fixed;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    background-color:white;
+    border-style: solid;
+    border-color: #DC143C;
+    border-width: 1vmin;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+#header{
+    height: 10vmin;
+    vertical-align: top;
+}
+
+#bottom{
+    height: 8vmin;
+}
+
+#logo{
+    height: 100%;
+}
+
+#name{
+    font-size: 3vmin;
+}
+
+.bigVersion{
+    margin: 4vmin;
+}
+
+.versionTitle{
+    font-size: 20px;
+}
+  
+.commonbutton{
+    width: 7.2vmin;
+    height: 4.2vmin;
+    font-size: 1.5vmin;
+    border-radius:0px;
+    border-width:0px;
+    text-align: center;
+}
+
+.commonbutton:hover {
+    background-color: #DC143C;
+    color: white;
+}
+
+.choiceBlock{
+    display: inline-block;
+    margin: 4vmin;
+    width: 30vmin;
+    height: 30vmin;
+    background-color: #f64f59;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.controlblock{
+    margin: 0px;
+    padding: 0.5vmin;
+    text-align: center;
+    height: 100%;
+    font-size: 2.5vmin;
+    color: 	#B22222;
+    display: inline-block;
+    box-sizing:border-box;
+    vertical-align: top;
+    width: 14vmin;
+    background-color: transparent;
+    border-width:0px;
+    user-select: none;
+}
+
+.controlblock:hover{
+    background-color: #DC143C;
+    color: white;
+}
+
+.controlpanel{
+    margin: 0px;
+    padding-left: 3vmin;
+    padding-right: 3vmin;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.inputarea{
+    border-radius: 0px;
+    border-width: 2.5px;
+    border-color: #AEAEB2;
+    border-style: solid;
+}
+
+.inputarea:hover{
+    border-radius: 0px;
+    border-width: 2.5px;
+    border-color: #DC143C;
+    border-style: solid;
+}
+
+.fwbuttonblock{
+    padding: 0 5vmin 0 5vmin;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.close-btn{
+    background-image: url('../img/Navigation_Stop_2x.png');
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+}
+
+.close-btn:hover{
+    opacity: 0.6;
+}
