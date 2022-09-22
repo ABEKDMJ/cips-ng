@@ -13,8 +13,13 @@ func init() {
 	beego.Router("/user/login", &controllers.LoginCtrl{})
 	beego.Router("/user/logout", &controllers.LogoutCtrl{})
 	beego.Router("/user/register", &controllers.RegisterCtrl{})
-	beego.Router("/mcontrol/showMission", &controllers.McAddMissionCtrl{})
+	beego.Router("/user/changePw", &controllers.ChangePwCtrl{})
+	beego.Router("/mcontrol/addMission", &controllers.McAddMissionCtrl{})
+	beego.Router("/mcontrol/editMission", &controllers.McEditMissionCtrl{})
+	beego.Router("/mcontrol/delMission", &controllers.McDelMissionCtrl{})
 	beego.Router("/mcontrol/showMission", &controllers.McGetMissionCtrl{})
+	beego.Router("/mcontrol/recMission", &controllers.McRecMissionCtrl{})
 	beego.Router("/mcontrol/getRecycleList", &controllers.McReLiCtrl{})
+	beego.Router("/mcontrol/clearRecycleList", &controllers.McClLiCtrl{})
 
 }
